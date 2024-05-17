@@ -28,7 +28,7 @@
             <ng-container *ngIf="isMarketPage">
               <ion-button (click)="addProductToCart(product)">Agregar al carrito</ion-button>
             </ng-container>
-            <ng-container *ngIf="!isMarketPage">
+            <ng-container *ngIf="isCartPage">
               <ion-button (click)="removeFromCart(product)">Remover del carrito</ion-button>
             </ng-container>
           </ion-card-content>
