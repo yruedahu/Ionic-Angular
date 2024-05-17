@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Products, Rating } from 'src/app/interfaces/product';
 import { AlertController } from '@ionic/angular';
 import { DataService } from 'src/app/services/request.service';
