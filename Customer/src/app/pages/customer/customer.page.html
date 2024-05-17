@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Bienvenido {{name}} {{lastName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="Information-user">
+    <ion-grid>
+      <ion-row>
+        <ion-col offset="3" size="6">
+          <ion-row>Nombre de usuario</ion-row>
+          <ion-row>Tipo de identificacion</ion-row>
+          <ion-row>Identificacion</ion-row>
+          <ion-row>Telefono</ion-row>
+          <ion-row>Email</ion-row>
+          <ion-row>Direccion</ion-row>
+        </ion-col>
+        <ion-col size="3">
+          <ion-input #usuarioDireccion [value]="address" [disabled]="enableName" (input)="modifyAddress($event)"></ion-input>
+          <ion-row>{{documentType}}</ion-row>
+          <ion-row>{{documentNumber}}</ion-row>
+          <ion-row>{{phone}}</ion-row>
+          <ion-row>{{email}}</ion-row>
+          <ion-row>{{address}}</ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">customer</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>

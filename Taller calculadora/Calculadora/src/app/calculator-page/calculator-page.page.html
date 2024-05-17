@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Calculator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Número 1</ion-label>
+    <ion-input type="number" [(ngModel)]="n1"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Número 2</ion-label>
+    <ion-input type="number" [(ngModel)]="n2"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Límite de la Serie de Fibonacci</ion-label>
+    <ion-input type="number" [(ngModel)]="fibonacciLimit"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Número para calcular el factorial</ion-label>
+    <ion-input type="number" [(ngModel)]="numeroFactorial"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="sumar()">Sumar</ion-button>
+  <ion-button expand="block" (click)="restar()">Restar</ion-button>
+  <ion-button expand="block" (click)="multiplicar()">Multiplicar</ion-button>
+  <ion-button expand="block" (click)="dividir()">Dividir</ion-button>
+  <ion-button expand="block" (click)="calcularResiduo()">Calcular Residuo</ion-button>
+  <ion-button expand="block" (click)="verificarParImpar(n1)" [disabled]="n1 === undefined || n2 === undefined">Verificar Par/Impar</ion-button>
+  <ion-button expand="block" (click)="fibonnaci()" [disabled]="fibonacciLimit === undefined || fibonacciLimit === 0" >Generar Serie de Fibonacci</ion-button>
+  <ion-button expand="block" (click)="calcularFactorial()">Calcular Factorial</ion-button>
+
+  <ion-item *ngIf="n1 !== undefined">
+    <ion-label>El primer número es {{ verificarParImpar(n1) }}</ion-label>
+  </ion-item>
+
+  <ion-item *ngIf="n2 !== undefined">
+    <ion-label>El segundo número es {{ verificarParImpar(n2) }}</ion-label>
+  </ion-item>
+
+  <ion-item *ngIf="resultadoSuma !== undefined">
+    <ion-label>Suma: {{ resultadoSuma }}</ion-label>
+  </ion-item>
+  
+  <ion-item *ngIf="resultadoResta !== undefined">
+    <ion-label>Resta: {{ resultadoResta }}</ion-label>
+  </ion-item>
+  
+  <ion-item *ngIf="resultadoMultipli !== undefined">
+    <ion-label>Multiplicación: {{ resultadoMultipli }}</ion-label>
+  </ion-item>
+  
+  <ion-item *ngIf="!isNaN">
+    <ion-label>División: {{ resultadoDiv }}</ion-label>
+  </ion-item>
+  
+  <ion-item *ngIf="isNaN">
+    <ion-label>División: Error (División por cero)</ion-label>
+  </ion-item>
+  
+  <ion-item *ngIf="resultResiduo !== undefined">
+    <ion-label>El residuo es: {{ resultResiduo }}</ion-label>
+  </ion-item>
+  
+  <ion-item *ngFor="let number of serieFibbon">
+    <ion-label>Fibonacci: {{ number }}</ion-label>
+  </ion-item>
+
+  <ion-item *ngIf="factorialResult !== null">
+    <ion-label>Factorial: {{ factorialResult }}</ion-label>
+  </ion-item>
+</ion-content>
